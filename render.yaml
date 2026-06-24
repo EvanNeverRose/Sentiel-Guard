@@ -1,0 +1,24 @@
+services:
+  - type: worker
+    name: erlc-discord-bot
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: DISCORD_CLIENT_ID
+        sync: false
+      - key: DISCORD_GUILD_ID
+        sync: false
+      - key: OWNER_GUILD_ID
+        sync: false
+      - key: OWNER_USER_IDS
+        sync: false
+      - key: ERLC_BASE_URL
+        value: https://api.erlc.gg/v2
+      - key: ERLC_PLAYERS_PATH
+        value: /server/players
+      - key: SECURITY_SCAN_INTERVAL_SECONDS
+        value: "60"
